@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peinture{% endblock %}
+
+{% block body %}
+    <h1>Peinture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ peinture.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ peinture.nom }}</td>
+            </tr>
+            <tr>
+                <th>Largeur</th>
+                <td>{{ peinture.largeur }}</td>
+            </tr>
+            <tr>
+                <th>Hauteur</th>
+                <td>{{ peinture.hauteur }}</td>
+            </tr>
+            <tr>
+                <th>En_vente</th>
+                <td>{{ peinture.enVente ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ peinture.prix }}</td>
+            </tr>
+            <tr>
+                <th>Date_realisation</th>
+                <td>{{ peinture.dateRealisation ? peinture.dateRealisation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ peinture.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_peinture_index') }}">back to list</a>
+
+    <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}">edit</a>
+
+    {{ include('peinture/_delete_form.html.twig') }}
+{% endblock %}
