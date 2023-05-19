@@ -20,6 +20,11 @@ class HomeController extends AbstractController
     public function index(PeintureRepository $peintureRepository): Response
     {
         $aux=$this->getUser();
+        if($this->getUser()==null)
+        {
+       return $this->redirectToRoute('login');
+
+        }
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'user'=>$aux,
