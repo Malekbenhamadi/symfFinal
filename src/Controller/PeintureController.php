@@ -90,29 +90,6 @@ class PeintureController extends AbstractController
         return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    
-     #[Route("/image/{id}/comment/add", name: "comment_add", methods:["POST"])]
-    
-    public function addComment(Request $request, Peinture $peinture): Response
-    {
-        $comment = new Commentaire();
-        $comment->setPeinture($peinture);
 
-        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($comment);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('image_show', ['id' => $peinture->getId()]);
-        }
-
-        return $this->render('image/edit.html.twig', [
-            'image' => $peinture,
-            'commentForm' => $form->createView(),
-        ]);
-    }
 
 }
