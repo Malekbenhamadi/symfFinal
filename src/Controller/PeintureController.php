@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Commentaire;
 use App\Entity\Peinture;
 use App\Form\PeintureType;
+use App\Form\CommentaireType;
+
 use App\Repository\CommentaireRepository;
 use App\Repository\PeintureRepository;
 use DateTime;
@@ -54,16 +56,16 @@ class PeintureController extends AbstractController
 
     #[Route('/{id}/edit', name: 'app_peinture_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Peinture $peinture, PeintureRepository $peintureRepository,CommentaireRepository $commentaireRepository): Response
-    {
-        $form = $this->createForm(PeintureType::class, $peinture);
+    {$newCommentaires=new Commentaire;
+        $form = $this->createForm(CommentaireType::class, $newCommentaires);
         $form->handleRequest($request);
-         $newCommentaires=new Commentaire;
+        $newCommentaires->setPeinture($peinture);
+        $newCommentaires->setUser($this->getUser());
         if ($form->isSubmitted() && $form->isValid()) {
-            // $date = new DateTimeImmutable(date("Y/m/d"));
-            // echo "<script>console.log('aaa')</script>";
-            // $mutable = DateTime::createFromInterface($date);
-            // $newCommentaires->setDate($mutable);
-            // $commentaireRepository->save($newCommentaires,true);
+            $date = new DateTimeImmutable(date("Y/m/d"));
+            $mutable = DateTime::createFromInterface($date);
+            $newCommentaires->setDate($mutable);
+            $commentaireRepository->save($newCommentaires,true);
          //   $peinture->addCommentaire($newCommentaires);
             $peintureRepository->save($peinture, true);
 
@@ -75,7 +77,7 @@ class PeintureController extends AbstractController
             'form' => $form,
             'commentaires'=>$peinture->getCommentaires(),
             'newCommentaires'=>$newCommentaires,
-        ]);
+            ]);
     }
 
     #[Route('/{id}', name: 'app_peinture_delete', methods: ['POST'])]
