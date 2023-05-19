@@ -26,7 +26,7 @@ class CommentaireCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             DateTimeField::new('date'),
-            TextEditorField::new('contenu'),
+            TextField::new('contenu'),
             AssociationField::new('user'),
             AssociationField::new('peinture'),
 
