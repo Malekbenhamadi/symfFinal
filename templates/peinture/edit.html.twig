@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Peinture{% endblock %}
+{% block title %}Edit Peinture
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Peinture</h1>
 
-    {{ include('peinture/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_peinture_index') }}">back to list</a>
+	{{ include('peinture/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('peinture/_delete_form.html.twig') }}
+	<a href="{{ path('app_peinture_index') }}">back to list</a>
+
+	{{ include('peinture/_delete_form.html.twig') }}
 {% endblock %}
