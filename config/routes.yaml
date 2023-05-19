@@ -2,7 +2,7 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 home:
-    path: /home
+    path: /
     controller: App\Controller\HomeController::index
 login:
     path: /login

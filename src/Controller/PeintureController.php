@@ -55,8 +55,9 @@ class PeintureController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_peinture_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Peinture $peinture, PeintureRepository $peintureRepository,CommentaireRepository $commentaireRepository): Response
-    {$newCommentaires=new Commentaire;
+    public function edit(Request $request, Peinture $peinture, PeintureRepository $peintureRepository, CommentaireRepository $commentaireRepository): Response
+    {
+        $newCommentaires = new Commentaire;
         $form = $this->createForm(CommentaireType::class, $newCommentaires);
         $form->handleRequest($request);
         $newCommentaires->setPeinture($peinture);
@@ -65,8 +66,8 @@ class PeintureController extends AbstractController
             $date = new DateTimeImmutable(date("Y/m/d"));
             $mutable = DateTime::createFromInterface($date);
             $newCommentaires->setDate($mutable);
-            $commentaireRepository->save($newCommentaires,true);
-         //   $peinture->addCommentaire($newCommentaires);
+            $commentaireRepository->save($newCommentaires, true);
+            //   $peinture->addCommentaire($newCommentaires);
             $peintureRepository->save($peinture, true);
 
             return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
@@ -75,24 +76,24 @@ class PeintureController extends AbstractController
         return $this->renderForm('peinture/edit.html.twig', [
             'peinture' => $peinture,
             'form' => $form,
-            'commentaires'=>$peinture->getCommentaires(),
-            'newCommentaires'=>$newCommentaires,
-            ]);
+            'commentaires' => $peinture->getCommentaires(),
+            'newCommentaires' => $newCommentaires,
+        ]);
     }
 
     #[Route('/{id}', name: 'app_peinture_delete', methods: ['POST'])]
     public function delete(Request $request, Peinture $peinture, PeintureRepository $peintureRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$peinture->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $peinture->getId(), $request->request->get('_token'))) {
             $peintureRepository->remove($peinture, true);
         }
 
         return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    
-     #[Route("/image/{id}/comment/add", name: "comment_add", methods:["POST"])]
-    
+
+    #[Route("/image/{id}/comment/add", name: "comment_add", methods: ["POST"])]
+
     public function addComment(Request $request, Peinture $peinture): Response
     {
         $comment = new Commentaire();
