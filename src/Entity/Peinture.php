@@ -41,7 +41,7 @@ class Peinture
     private Collection $Commentaires;
 
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'peintures')]
-    private Collection $Categories;
+    public Collection $Categories;
 
     public function __construct()
     {

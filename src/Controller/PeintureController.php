@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaire;
 use App\Entity\Peinture;
 use App\Form\PeintureType;
+use App\Repository\CommentaireRepository;
 use App\Repository\PeintureRepository;
+use DateTime;
+use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,12 +53,18 @@ class PeintureController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_peinture_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Peinture $peinture, PeintureRepository $peintureRepository): Response
+    public function edit(Request $request, Peinture $peinture, PeintureRepository $peintureRepository,CommentaireRepository $commentaireRepository): Response
     {
         $form = $this->createForm(PeintureType::class, $peinture);
         $form->handleRequest($request);
-
+         $newCommentaires=new Commentaire;
         if ($form->isSubmitted() && $form->isValid()) {
+            // $date = new DateTimeImmutable(date("Y/m/d"));
+            // echo "<script>console.log('aaa')</script>";
+            // $mutable = DateTime::createFromInterface($date);
+            // $newCommentaires->setDate($mutable);
+            // $commentaireRepository->save($newCommentaires,true);
+         //   $peinture->addCommentaire($newCommentaires);
             $peintureRepository->save($peinture, true);
 
             return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
@@ -63,6 +73,8 @@ class PeintureController extends AbstractController
         return $this->renderForm('peinture/edit.html.twig', [
             'peinture' => $peinture,
             'form' => $form,
+            'commentaires'=>$peinture->getCommentaires(),
+            'newCommentaires'=>$newCommentaires,
         ]);
     }
 
@@ -75,4 +87,30 @@ class PeintureController extends AbstractController
 
         return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
+     #[Route("/image/{id}/comment/add", name: "comment_add", methods:["POST"])]
+    
+    public function addComment(Request $request, Peinture $peinture): Response
+    {
+        $comment = new Commentaire();
+        $comment->setPeinture($peinture);
+
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('image_show', ['id' => $peinture->getId()]);
+        }
+
+        return $this->render('image/edit.html.twig', [
+            'image' => $peinture,
+            'commentForm' => $form->createView(),
+        ]);
+    }
+
 }

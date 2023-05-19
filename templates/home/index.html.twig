@@ -1,35 +1,217 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello HomeController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-<br>
-  {% for peinture in peintures %}
-					<tr>
-				
-				<td>{{ peinture.id }}</td>
-                <td>{{ peinture.nom }}</td>
-                <td>{{ peinture.largeur }}</td>
-                <td>{{ peinture.hauteur }}</td>
-                <td>{{ peinture.prix }}</td>
-                <td>{{ peinture.description }}</td>
-				
-				<td>
-							<a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-				</td>
-					</tr>
-		       {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}			
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Socail Media Template</title>
+		<link rel="stylesheet" href="./SCSS/index.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+			}
 
-    </div>
-{% endblock %}
+			body {
+				background-color: #efefef !important;
+			}
+
+			.jsjhr .skfjh {
+				position: relative;
+				top: 4rem;
+			}
+
+			.jsjhr .skfjh .sfjhe {
+				background-color: #fff;
+				padding: 12px;
+				-webkit-box-shadow: 0 0 6px #ccc;
+				box-shadow: 0 0 6px #ccc;
+				height: 100%;
+			}
+
+			.jsjhr .skfjh .sfjhe .sjfsj img {
+				width: 140px;
+				margin-top: 9px;
+				border-radius: 50%;
+				margin-left: 8px;
+			}
+
+			.jsjhr .skfjh .sfjhe h5 {
+				font-size: 16px;
+			}
+
+			.jsjhr .skfjh .jfheuf {
+				background-color: #fff;
+				-webkit-box-shadow: 0 0 6px #ccc;
+				box-shadow: 0 0 6px #ccc;
+				padding: 34px;
+			}
+
+			.jsjhr .skfjh .jfheuf textarea {
+				border: navajowhite;
+				border-bottom: 1px solid #efefef;
+				outline: navajowhite;
+			}
+
+			.jsjhr .skfjh .box1 {
+				background-color: #fff;
+				-webkit-box-shadow: 0 0 6px #ccc;
+				box-shadow: 0 0 6px #ccc;
+				padding: 20px;
+				margin-top: 20px;
+			}
+
+			.jsjhr .skfjh .box1 .skfjkk .lkt40 img {
+				width: 33px;
+				border-radius: 50%;
+				height: 33px;
+			}
+
+			.jsjhr .skfjh .left_box {
+				background-color: #fff;
+				-webkit-box-shadow: 0 0 6px #ccc;
+				box-shadow: 0 0 6px #ccc;
+				padding: 34px;
+			}
+
+			.jsjhr .skfjh .left_box .dfkj .lkt40 img {
+				width: 30px;
+				border-radius: 50%;
+				height: 30px;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="#">Socail Media Template</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<div class="mx-auto">
+						<form class="d-flex">
+							<input class="form-control mr-2" type="search" placeholder="Search Here" aria-label="Search" style="    min-width: 270%; background-color: #efefef;">
+						</form>
+					</div>
+					<ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">
+								<i class="far fa-comment"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">
+								<i class="bi bi-box-arrow-right"></i>
+							</a>
+						</li>
+						<li class="nav-item">
+							<img src="./Images/1.jpg" alt="" style="width: 25px;margin-top: 9px;
+																					               border-radius: 50px;
+																					               margin-left: 8px;">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--  -->
+		<div class="container jsjhr">
+			<div class="row skfjh">
+				<div class="col-md-2 sfjhe">
+					<div class=" sjfsj">
+						<img src="./Images/1.jpg" alt="">
+						<h5 class="text-center pt-3">
+							{{user.prenom}}
+							{{user.nom}}
+						</h5>
+						<p class="text-muted text-center">
+							{{user.email}}
+						</p>
+						<hr>
+						<div class="text-center">
+							<a href="" class="font-weight-bold text-decoration-none text-center">
+								View My Profile
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					{% for peinture in peintures %}
+
+						<a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}">
+							<div class="box1">
+								<div class="d-flex skfjkk">
+									<div class="lkt40">
+										<img src="./Images/1.jpg" alt="">
+
+									</div>
+									<div class="pl-2 pt-1">
+										<h6>{{ peinture.nom }}</h6>
+									</div>
+
+								</div>
+								<hr>
+
+								<img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png" style="width: 500px; height: 800;" alt="">
+
+								<hr>
+								<p class="text-muted">
+									{{ peinture.description }}
+								</p>
+								<hr>
+									
+									<div class="d-flex justify-content-around">
+										<div>
+											<i class="fa fa-heart"></i>
+											Like
+										</div>
+										<div>
+											<i class="fa fa-comment"></i>
+											Comments
+										</div>
+										<div>
+											<i class="fa fa-share"></i>
+											Share
+										</div>
+									</div>
+
+								</div>
+							</a>
+						{% endfor %}
+
+					</div>
+
+				</div>
+			</div>
+		</body>
+	</div>
+</div></body><br>{# <td>{{ peinture.id }}</td>
+			<td>{{ peinture.nom }}</td>
+			<td>{{ peinture.largeur }}</td>
+			<td>{{ peinture.hauteur }}</td>
+			<td>{{ peinture.prix }}</td>
+			<td>{{ peinture.description }}</td> #}{# <td>
+			  <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i
+			      class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+			  <a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i
+			      class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+			</td>
+			</tr>
+			{% else %}
+			<tr>
+			  <td colspan="9">no records found</td>
+			</tr>
+			{% endfor %} #}{% endblock %}

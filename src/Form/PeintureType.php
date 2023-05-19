@@ -20,6 +20,8 @@ class PeintureType extends AbstractType
             ->add('date_realisation')
             ->add('description')
             ->add('Categories')
+            ->add('Commentaires')
+
         ;
     }
 
