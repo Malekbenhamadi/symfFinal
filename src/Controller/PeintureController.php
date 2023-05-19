@@ -77,6 +77,7 @@ class PeintureController extends AbstractController
             'peinture' => $peinture,
             'form' => $form,
             'commentaires' => $peinture->getCommentaires(),
+            'nbCom'=>sizeof($peinture->getCommentaires()),
             'newCommentaires' => $newCommentaires,
         ]);
     }

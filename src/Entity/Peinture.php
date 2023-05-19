@@ -32,7 +32,7 @@ class Peinture
     private ?string $prix = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_realisation = null;
+    public ?\DateTimeInterface $date_realisation = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;

@@ -121,11 +121,7 @@
 								<i class="bi bi-box-arrow-right"></i>
 							</a>
 						</li>
-						<li class="nav-item">
-							<img src="./Images/1.jpg" alt="" style="width: 25px;margin-top: 9px;
-																					               border-radius: 50px;
-																					               margin-left: 8px;">
-						</li>
+				
 					</ul>
 				</div>
 			</div>
@@ -154,21 +150,20 @@
 				<div class="col-md-6">
 					{% for peinture in peintures %}
 
-						<a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}">
+						<a style="text-decoration:none" href="{{ path('app_peinture_edit', {'id': peinture.id}) }}">
 							<div class="box1">
-								<div class="d-flex skfjkk">
-									<div class="lkt40">
-										<img src="./Images/1.jpg" alt="">
+								<div class="skfjkk">
+						
 
-									</div>
-									<div class="pl-2 pt-1">
+
+									<div class="pl-2 pt-1 text-center"  >
 										<h6>{{ peinture.nom }}</h6>
 									</div>
 
 								</div>
 								<hr>
 
-								<img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png" style="width: 500px; height: 800;" alt="">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png" style="width: 580px; height: 800;" class="center" alt="">
 
 								<hr>
 								<p class="text-muted">
@@ -177,18 +172,12 @@
 								<hr>
 									
 									<div class="d-flex justify-content-around">
-										<div>
-											<i class="fa fa-heart"></i>
-											Like
-										</div>
+								
 										<div>
 											<i class="fa fa-comment"></i>
 											Comments
 										</div>
-										<div>
-											<i class="fa fa-share"></i>
-											Share
-										</div>
+								
 									</div>
 
 								</div>
