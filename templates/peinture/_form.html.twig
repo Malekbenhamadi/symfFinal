@@ -81,16 +81,49 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-4">
+						<i class="fa-regular fa-user"></i>
+						<div class="">
+							{{user.prenom}}
+							{{user.nom}}
+						</div>
+						<p class="text-muted">
+							{{user.email}}
+						</p>
+
+					</div>
+					<h2 class="col-4" style="text-align:center;"><a href="/" style="text-decoration:none;color:red;">La maison des artistes</a></h2>
+					<div class="col-4" style="text-align:right;">
+						<a class="nav-link" aria-current="page" href="#">
+
+
+							<a href="logout">
+								<i class="fa fa-sign-out" aria-hidden="true"></i>
+							</a>
+							Logout
+						</a>
+					</div>
+
+
+				</div>
+			</div>
+
+
+		</nav>
 	<div class="container mt-5 mb-5">
 		<div class="row d-flex align-items-center justify-content-center">
 			<div class="col-md-6">
 				<div class="card">
 					<div class="d-flex justify-content-between p-2 px-3">
 						<div class="d-flex flex-row align-items-center">
-					
+
 							<div class="text-center flex-column ml-2">
 								<span class="font-weight-bold">{{peinture.nom}}</span>
-				
+
 							</div>
 						</div>
 						<div class="d-flex flex-row mt-1 ellipsis">
@@ -106,24 +139,25 @@
 						</p>
 						<hr/>
 						<div class="d-flex justify-content-between align-items-center">
-					
+
 							<div class="d-flex flex-row muted-color">
 								<span>{{nbCom}}</span>
 								<span class="ml-2">comments</span>
-							</div>	
+							</div>
 						</div>
 						<hr/>
 						<div class="comments">
 							{% for com in commentaires  %}
 
 								<div class="d-flex flex-row mb-2">
-									<img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" class="rounded-image"/>
+									<img src="https://img.freepik.com/free-icon/user_318-563642.jpg?w=360" width="7" class="rounded-image"/>
 									<div class="d-flex flex-column ml-2">
-										<span class="name">{{com.user.nom}}</span>
-										<small class="comment-text">{{com.contenu}}</small>
+										<span class="name">{{com.user.nom}}
+											{{com.user.prenom}}</span>
+										<span class="comment-text" style="font-size:20px">{{com.contenu}}</span>
 										<div class="d-flex flex-row align-items-center status">
-								
-											<small>{{com.date.format('Y-m-d H:i:s')}}</small>
+
+											<small style="font-size:10px">{{com.date.format('Y-m-d H:i:s')}}</small>
 										</div>
 									</div>
 								</div>
@@ -133,11 +167,10 @@
 							<div class="comment-input">
 								<input placeholder="ecrire un commentaire" name="{{ field_name(form.contenu) }}" value="{{ field_value(form.contenu) }}" class="form-control"/>
 								<div class="fonts">
-					
-					
+
+
 									{{ form_widget(form.send, {'attr': {'class': 'fa fa-paper-plane', 'style':'border-radius: 12px'}}) }}
 
-								
 
 								</div>
 							</div>

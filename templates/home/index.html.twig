@@ -8,7 +8,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>La maison des artistes </title>
+		<title>La maison des artistes
+		</title>
 		<link rel="stylesheet" href="./SCSS/index.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -97,66 +98,51 @@
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="#">La maison des artistes </a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-					<div class="mx-auto">
-						<form class="d-flex">
-							<input class="form-control mr-2" type="search" placeholder="Search Here" aria-label="Search" style="    min-width: 270%; background-color: #efefef;">
-						</form>
-					</div>
-					<ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<a class="nav-link" aria-current="page" href="#">
 
-					
-								<a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
-										Logout
+				<div class="row">
+					<div class="col-4">
+						<div class="">
+							{{user.prenom}}
+							{{user.nom}}
+						</div>
+						<p class="text-muted">
+							{{user.email}}
+						</p>
+
+					</div>
+					<h2 class="col-4" style="text-align:center;color:red;">La maison des artistes</h2>
+					<div class="col-4" style="text-align:right;">
+						<a class="nav-link" aria-current="page" href="#">
+
+
+							<a href="logout">
+								<i class="fa fa-sign-out" aria-hidden="true"></i>
 							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" aria-current="page" href="#">
-								<i class="bi bi-box-arrow-right"></i>
-							</a>
-						</li>
-				
-					</ul>
+							Logout
+						</a>
+					</div>
+
+
 				</div>
 			</div>
+
+
 		</nav>
 		<!--  -->
 		<div class="container jsjhr">
 			<div class="row skfjh">
-				<div class="col-md-2 sfjhe">
-					<div class=" sjfsj">
-						<img src="./Images/1.jpg" alt="">
-						<h5 class="text-center pt-3">
-							{{user.prenom}}
-							{{user.nom}}
-						</h5>
-						<p class="text-muted text-center">
-							{{user.email}}
-						</p>
-						<hr>
-						<div class="text-center">
-							<a href="" class="font-weight-bold text-decoration-none text-center">
-								View My Profile
-							</a>
-						</div>
-					</div>
-				</div>
+
+				<div class="col-3"></div>
+
 				<div class="col-md-6">
 					{% for peinture in peintures %}
 
 						<a style="text-decoration:none" href="{{ path('app_peinture_edit', {'id': peinture.id}) }}">
 							<div class="box1">
 								<div class="skfjkk">
-						
 
 
-									<div class="pl-2 pt-1 text-center"  >
+									<div class="pl-2 pt-1 text-center">
 										<h6>{{ peinture.nom }}</h6>
 									</div>
 
@@ -170,40 +156,40 @@
 									{{ peinture.description }}
 								</p>
 								<hr>
-									
-									<div class="d-flex justify-content-around">
-								
-										<div>
-											<i class="fa fa-comment"></i>
-											Comments
-										</div>
-								
+
+								<div class="d-flex justify-content-around">
+
+									<div>
+										<i class="fa fa-comment"></i>
+										Comments
 									</div>
 
 								</div>
-							</a>
-						{% endfor %}
 
-					</div>
+							</div>
+						</a>
+					{% endfor %}
 
 				</div>
+
 			</div>
-		</body>
-	</div>
-</div></body><br>{# <td>{{ peinture.id }}</td>
-			<td>{{ peinture.nom }}</td>
-			<td>{{ peinture.largeur }}</td>
-			<td>{{ peinture.hauteur }}</td>
-			<td>{{ peinture.prix }}</td>
-			<td>{{ peinture.description }}</td> #}{# <td>
-			  <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i
-			      class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-			  <a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i
-			      class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-			</td>
-			</tr>
-			{% else %}
-			<tr>
-			  <td colspan="9">no records found</td>
-			</tr>
-			{% endfor %} #}{% endblock %}
+
+		</div>
+	</body>
+</div></div></body><br>{# <td>{{ peinture.id }}</td>
+								<td>{{ peinture.nom }}</td>
+								<td>{{ peinture.largeur }}</td>
+								<td>{{ peinture.hauteur }}</td>
+								<td>{{ peinture.prix }}</td>
+								<td>{{ peinture.description }}</td> #}{# <td>
+								  <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i
+								      class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+								  <a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i
+								      class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								</td>
+								</tr>
+								{% else %}
+								<tr>
+								  <td colspan="9">no records found</td>
+								</tr>
+								{% endfor %} #}{% endblock %}
