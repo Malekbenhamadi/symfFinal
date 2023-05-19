@@ -89,7 +89,7 @@
 							<div class="d-flex flex-row align-items-center">
 								<img src="https://i.imgur.com/UXdKE3o.jpg" width="50" class="rounded-circle"/>
 								<div class="d-flex flex-column ml-2">
-									<span class="font-weight-bold">{{ field_value(form.nom) }}</span>
+									<span class="font-weight-bold">{{peinture.nom}}</span>
 									<small class="text-primary">Collegues</small>
 								</div>
 							</div>
@@ -101,7 +101,7 @@
 						<img src="https://i.imgur.com/xhzhaGA.jpg" class="img-fluid"/>
 						<div class="p-2">
 							<p class="text-justify">
-								{{ field_value(form.description) }}
+								{{ peinture.description  }}
 
 							</p>
 							<hr/>
@@ -117,7 +117,7 @@
 							</div>
 							<hr/>
 							<div class="comments">
-								{% for com in form.Commentaires  %}
+								{% for com in commentaires  %}
 
 									<div class="d-flex flex-row mb-2">
 										<img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" class="rounded-image"/>
@@ -136,7 +136,7 @@
 
 
 								<div class="comment-input">
-                                    <input  name="com" value={{newCommentaires.contenu}} class="form-control"/>
+                                    <input placeholder="{{ field_label(form.contenu) }}" name="{{ field_name(form.contenu) }}" value="{{ field_value(form.contenu) }}" class="form-control"/>
 									<div class="fonts">
 										<i class="fa fa-camera"></i>
 									</div>
