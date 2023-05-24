@@ -35,8 +35,17 @@ class PeintureController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $request->files->get('peinture')['attachment'];
+            $uploads_directory = $this->getParameter('uploads_directory');
+            $filename= md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $uploads_directory,
+                $filename
+            );
+            $peinture->setPathImage($filename);
             $peintureRepository->save($peinture, true);
 
+            
             return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
         }
 

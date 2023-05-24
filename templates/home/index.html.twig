@@ -26,6 +26,7 @@
 
 			body {
 				background-image: url('{{ asset('images/bgsite1 .jpg') }}');
+				background-repeat: repeat;
 				background-size: cover;
 				background-position-y: 25%;
 			}
@@ -121,8 +122,8 @@
 			<div class="row skfjh">
 				<div class="col-3"></div>
 				<div class="col-3">
-						<button class="btn btn-info centerr" onclick="location.href='{{path('app_peinture_new')}}'" type="button">Ajouter votre propre peinture à vendre!</button>
-					</div>
+					<button class="btn btn-info centerr" onclick="location.href='{{path('app_peinture_new')}}'" type="button">Ajouter votre propre peinture à vendre!</button>
+				</div>
 				<div class="col-3"></div>
 				<div class="col-3"></div>
 
@@ -146,7 +147,7 @@
 								</div>
 								<hr>
 
-								<img src={{peinture.pathImage}} style="width: 580px; height: 500;" class="center" alt="">
+								<img src={{asset("images/") ~ peinture.pathImage}} style="width: 580px; height: 500;" class="center" alt="">
 
 								<hr>
 								<p class="text-center text-muted">
@@ -173,20 +174,20 @@
 
 		</div>
 	</body>
-</div></div></body><br>{# <td>{{ peinture.id }}</td>
-									<td>{{ peinture.nom }}</td>
-									<td>{{ peinture.largeur }}</td>
-									<td>{{ peinture.hauteur }}</td>
-									<td>{{ peinture.prix }}</td>
-									<td>{{ peinture.description }}</td> #}{# <td>
-									  <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i
-									      class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-									  <a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i
-									      class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-									</td>
-									</tr>
-									{% else %}
-									<tr>
-									  <td colspan="9">no records found</td>
-									</tr>
-									{% endfor %} #}{% endblock %}
+{# <td>{{ peinture.id }}</td>
+										<td>{{ peinture.nom }}</td>
+										<td>{{ peinture.largeur }}</td>
+										<td>{{ peinture.hauteur }}</td>
+										<td>{{ peinture.prix }}</td>
+										<td>{{ peinture.description }}</td> #}{# <td>
+										  <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i
+										      class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+										  <a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i
+										      class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+										</td>
+										</tr>
+										{% else %}
+										<tr>
+										  <td colspan="9">no records found</td>
+										</tr>
+										{% endfor %} #}{% endblock %}

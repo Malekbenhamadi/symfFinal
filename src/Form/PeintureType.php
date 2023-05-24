@@ -6,7 +6,7 @@ use App\Entity\Peinture;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 class PeintureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -16,7 +16,10 @@ class PeintureType extends AbstractType
             ->add('largeur')
             ->add('hauteur')
             ->add('en_vente')
-            ->add('pathImage')
+            
+            ->add('attachment', FileType::class,
+            ["mapped"=>false
+            ])
             ->add('prix')
             ->add('date_realisation')
             ->add('description')
