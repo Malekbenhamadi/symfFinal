@@ -37,7 +37,6 @@ class UserCrudController extends AbstractCrudController
             TextField::new('tel'),
             TextField::new('cin'),
             ArrayField::new('roles'), 
-            ImageField::new('imageField')->setFormType(VichImageType::class),
             AssociationField::new('Commentaires'),
         ];
     }
