@@ -1,13 +1,15 @@
+
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Add peinture
+{% block title %}Register
 {% endblock %}
 
 
 {% block stylesheets %}
 	<style>
 		body {
-			background-image: url('{{ asset('images/brush.jpg') }}');
+			background-image: url('{{ asset('images/editus.jpg') }}');
 			background-repeat: no-repeat;
 			background-size: cover;
     background-position-y: 25%;
@@ -37,7 +39,7 @@
                 <br>
                 <br>
                 <br>
-                <h2 style="text-align:center;">Ajouter une peinture</h2>
+                <h2 style="text-align:center;">Changez vos informations personnelles</h2>
 
                   <br>
                 <br>
@@ -59,91 +61,62 @@
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(form.largeur) }}
+							{{ form_label(form.prenom) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(form.largeur) }}
+                        	{{ form_widget(form.prenom) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(form.hauteur) }}
+							{{ form_label(form.cin) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(form.hauteur) }}
+                        	{{ form_widget(form.cin) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(form.en_vente) }}
+							{{ form_label(form.tel) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(form.en_vente) }}
+                        	{{ form_widget(form.tel) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(form.prix) }}
+							{{ form_label(form.email) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(form.prix) }}
+                        	{{ form_widget(form.email) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(form.date_realisation) }}
+							{{ form_label(form.password) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(form.date_realisation) }}
+                        	{{ form_widget(form.password) }}
 
                         </td>
 					</tr>
-                    <tr>
-						<td>
-							{{ form_label(form.description) }}
-
-						</td>
-						<td>
-                        	{{ form_widget(form.description) }}
-
-                        </td>
-					</tr>
+              
                     
-					 <tr>
-						<td>
-							{{ form_label(form.Categories) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(form.Categories) }}
-
-                        </td>
-					</tr>
-					 <tr>
-						<td>
-							{{ form_label(form.attachment) }}
-
-						</td>
-						<td>
-                        	{{ form_widget(form.attachment) }}
-
-                        </td>
-					</tr>
-   
              
 				</table>
                 <div class="text-center">
 
-                                    	<button type="submit" class="btn">Ajouter</button>
+                                    	<button type="submit" class="btn">Update</button>
 			</div>
 			{{ form_rest(form) }}
 </form >

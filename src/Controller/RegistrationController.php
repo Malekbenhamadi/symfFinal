@@ -25,6 +25,17 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
+      
+            $file = $request->files->get('registration_form')['attachment'];
+            $uploads_directory = $this->getParameter('uploads_directory');
+            $filename= md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $uploads_directory,
+                $filename
+            );
+            $user->setImage($filename);
+        
+
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,

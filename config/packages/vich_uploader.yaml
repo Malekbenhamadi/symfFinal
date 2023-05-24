@@ -1,0 +1,6 @@
+vich_uploader:
+    db_driver: orm # Set the database driver here, it can be either "orm" for Doctrine ORM or "mongodb" for MongoDB ODM
+    # mappings:
+    #     my_mapping:
+    #         uri_prefix: '%app.path.upload%' # The URI prefix for uploaded files
+    #         upload_destination: '%kernel.project_dir%/public/uploads' # The directory where uploaded files will be stored
