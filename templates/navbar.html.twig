@@ -1,15 +1,14 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Your Website</title>
 
 		<style>
 
-body {
-				background-image: url('{{ asset('images/bgsite1	.jpg') }}');
-			background-repeat: no-repeat;
-			background-size: cover;
-   			 background-position-y: 25%;
+			body {
+				background-image: url('{{ asset('images/bgsite1 .jpg') }}');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position-y: 25%;
 			}
 
 			.navbar {
@@ -17,9 +16,9 @@ body {
 			}
 
 			.navbar-brand {
-			      padding-left: 15px;
+				padding-left: 15px;
 
-        
+
 			}
 
 			.navbar-text {
@@ -35,8 +34,10 @@ body {
 			</a>
 			<ul class="navbar-nav mr-auto"></ul>
 			<span class="navbar-text">
-				<i class="fas fa-user-circle"></i>
-						{{user.prenom}} 							{{user.nom}}
+				<a href="{{ path('app_user_edit', {'id': user.id} )}}" class="">
+					<i class="fas fa-user-circle"></i>
+					{{user.prenom}}
+					{{user.nom}}</a>
 
 
 			</span>

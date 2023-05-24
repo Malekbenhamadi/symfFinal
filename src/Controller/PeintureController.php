@@ -37,7 +37,7 @@ class PeintureController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $peintureRepository->save($peinture, true);
 
-            return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('peinture/ajoutercom.html.twig', [
@@ -70,7 +70,7 @@ class PeintureController extends AbstractController
             //   $peinture->addCommentaire($newCommentaires);
             $peintureRepository->save($peinture, true);
 
-            return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('peinture/edit.html.twig', [
