@@ -16,11 +16,11 @@ class PeintureType extends AbstractType
             ->add('largeur')
             ->add('hauteur')
             ->add('en_vente')
+            ->add('pathImage')
             ->add('prix')
             ->add('date_realisation')
             ->add('description')
             ->add('Categories')
-            ->add('Commentaires')
 
         ;
     }

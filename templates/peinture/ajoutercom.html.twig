@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Add peinture
 {% endblock %}
 
 
@@ -26,7 +26,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 
-	                        				{{ form_start(registrationForm) }}
+	                        				{{ form_start(form) }}
 
 	<div class="container">
 		<div class="row">
@@ -37,7 +37,7 @@
                 <br>
                 <br>
                 <br>
-                <h2 style="text-align:center;">Register</h2>
+                <h2 style="text-align:center;">Ajouter une peinture</h2>
 
                   <br>
                 <br>
@@ -49,90 +49,111 @@
 						<td>
 
 
-							{{ form_label(registrationForm.nom) }}
+							{{ form_label(form.nom) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(registrationForm.nom) }}
+                        	{{ form_widget(form.nom) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(registrationForm.prenom) }}
+							{{ form_label(form.largeur) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(registrationForm.prenom) }}
+                        	{{ form_widget(form.largeur) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(registrationForm.cin) }}
+							{{ form_label(form.hauteur) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(registrationForm.cin) }}
+                        	{{ form_widget(form.hauteur) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(registrationForm.tel) }}
+							{{ form_label(form.en_vente) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(registrationForm.tel) }}
+                        	{{ form_widget(form.en_vente) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(registrationForm.email) }}
+							{{ form_label(form.prix) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(registrationForm.email) }}
+                        	{{ form_widget(form.prix) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(registrationForm.plainPassword) }}
+							{{ form_label(form.date_realisation) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(registrationForm.plainPassword) }}
+                        	{{ form_widget(form.date_realisation) }}
 
                         </td>
 					</tr>
                     <tr>
 						<td>
-							{{ form_label(registrationForm.agreeTerms) }}
+							{{ form_label(form.description) }}
 
 						</td>
 						<td>
-                        	{{ form_widget(registrationForm.agreeTerms) }}
+                        	{{ form_widget(form.description) }}
 
                         </td>
 					</tr>
                     
+					 <tr>
+						<td>
+							{{ form_label(form.Categories) }}
+
+						</td>
+						<td>
+                        	{{ form_widget(form.Categories) }}
+
+                        </td>
+					</tr>
+                    
+					 <tr>
+						<td>
+							{{ form_label(form.pathImage) }}
+
+						</td>
+						<td>
+                        	{{ form_widget(form.pathImage) }}
+
+                        </td>
+					</tr>
 
              
 				</table>
                 <div class="text-center">
 
-                                    	<button type="submit" class="btn">Register</button>
+                                    	<button type="submit" class="btn">Ajouter</button>
 			</div>
-			{{ form_rest(registrationForm) }}
+			{{ form_rest(form) }}
 </form >
 
 			</div>
 		</div>
 	</div>
 
-{{ form_end(registrationForm) }}
+{{ form_end(form) }}
 
 
 {% endblock %}

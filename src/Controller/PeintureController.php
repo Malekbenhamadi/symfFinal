@@ -40,7 +40,7 @@ class PeintureController extends AbstractController
             return $this->redirectToRoute('app_peinture_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('peinture/new.html.twig', [
+        return $this->renderForm('peinture/ajoutercom.html.twig', [
             'peinture' => $peinture,
             'form' => $form,
         ]);

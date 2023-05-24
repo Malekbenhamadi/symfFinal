@@ -25,7 +25,9 @@
 			}
 
 			body {
-				background-color: #efefef !important;
+				background-image: url('{{ asset('images/bgsite1 .jpg') }}');
+				background-size: cover;
+				background-position-y: 25%;
 			}
 
 			.jsjhr .skfjh {
@@ -92,44 +94,39 @@
 				height: 30px;
 				margin-right: 10px;
 			}
+			.navbar {
+				background-color: #f8f9fa;
+			}
+
+			.navbar-brand {
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			.navbar-text {
+				margin-right: 15px;
+			}
+			.centerr {
+				position: relative;
+				left: 150px;
+			}
 		</style>
 	</head>
 
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-4">
-						<div class="">
-							{{user.prenom}}
-							{{user.nom}}
-						</div>
-						<p class="text-muted">
-							{{user.email}}
-						</p>
-
-					</div>
-					<h2 class="col-4" style="text-align:center;color:red;">La maison des artistes</h2>
-					<div class="col-4" style="text-align:right;">
-						<a class="nav-link" aria-current="page" href="#">
+		{% include 'navbar.html.twig' %}
 
 
-							<a href="logout">
-								<i class="fa fa-sign-out" aria-hidden="true"></i>
-							</a>
-							Logout
-						</a>
-					</div>
-
-
-				</div>
-			</div>
-
-
-		</nav>
-		<!--  -->
 		<div class="container jsjhr">
+			<div class="row skfjh">
+				<div class="col-3"></div>
+				<div class="col-3">
+						<button class="btn btn-info centerr" onclick="location.href='{{path('app_peinture_new')}}'" type="button">Ajouter votre propre peinture à vendre!</button>
+					</div>
+				<div class="col-3"></div>
+				<div class="col-3"></div>
+
+			</div>
 			<div class="row skfjh">
 
 				<div class="col-3"></div>
@@ -149,10 +146,10 @@
 								</div>
 								<hr>
 
-								<img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png" style="width: 580px; height: 800;" class="center" alt="">
+								<img src={{peinture.pathImage}} style="width: 580px; height: 500;" class="center" alt="">
 
 								<hr>
-								<p class="text-muted">
+								<p class="text-center text-muted">
 									{{ peinture.description }}
 								</p>
 								<hr>
@@ -177,19 +174,19 @@
 		</div>
 	</body>
 </div></div></body><br>{# <td>{{ peinture.id }}</td>
-								<td>{{ peinture.nom }}</td>
-								<td>{{ peinture.largeur }}</td>
-								<td>{{ peinture.hauteur }}</td>
-								<td>{{ peinture.prix }}</td>
-								<td>{{ peinture.description }}</td> #}{# <td>
-								  <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i
-								      class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								  <a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i
-								      class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-								</td>
-								</tr>
-								{% else %}
-								<tr>
-								  <td colspan="9">no records found</td>
-								</tr>
-								{% endfor %} #}{% endblock %}
+									<td>{{ peinture.nom }}</td>
+									<td>{{ peinture.largeur }}</td>
+									<td>{{ peinture.hauteur }}</td>
+									<td>{{ peinture.prix }}</td>
+									<td>{{ peinture.description }}</td> #}{# <td>
+									  <a href="{{ path('app_peinture_edit', {'id': peinture.id}) }}" class="edit" data-toggle="modal"><i
+									      class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+									  <a href="{{ path('app_peinture_delete', {'id': peinture.id}) }}" class="delete" data-toggle="modal"><i
+									      class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+									</td>
+									</tr>
+									{% else %}
+									<tr>
+									  <td colspan="9">no records found</td>
+									</tr>
+									{% endfor %} #}{% endblock %}

@@ -43,6 +43,9 @@ class Peinture
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'peintures')]
     public Collection $Categories;
 
+    #[ORM\Column(length: 500, nullable: true)]
+    private ?string $pathImage = null;
+
     public function __construct()
     {
         $this->Commentaires = new ArrayCollection();
@@ -195,5 +198,17 @@ class Peinture
     public function __toString(): string
     {
         return $this->nom;
+    }
+
+    public function getPathImage(): ?string
+    {
+        return $this->pathImage;
+    }
+
+    public function setPathImage(?string $pathImage): self
+    {
+        $this->pathImage = $pathImage;
+
+        return $this;
     }
 }

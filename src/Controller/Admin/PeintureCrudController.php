@@ -32,6 +32,7 @@ class PeintureCrudController extends AbstractCrudController
             BooleanField::new('en_vente'),
             DateTimeField::new('date_realisation'),
             TextField::new('description'),
+            TextField::new('pathImage'),
             AssociationField::new('Commentaires'),
             AssociationField::new('Categories'),
 
