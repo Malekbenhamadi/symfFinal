@@ -25,8 +25,10 @@
 			}
 
 			body {
-				background-image: url('{{ asset('images/bgsite1.jpg') }}');
-				background-size: cover;
+				background-image: url('{{ asset('images/adam.jpg') }}');
+				background-repeat: no-repeat;
+  				background-attachment: fixed;
+			
 				background-position-y: 25%;
 			}
 
@@ -94,18 +96,7 @@
 				height: 30px;
 				margin-right: 10px;
 			}
-			.navbar {
-				background-color: #f8f9fa;
-			}
-
-			.navbar-brand {
-				margin-right: auto;
-				margin-left: auto;
-			}
-
-			.navbar-text {
-				margin-right: 15px;
-			}
+		
 			.centerr {
 				position: relative;
 				left: 150px;
@@ -121,7 +112,7 @@
 			<div class="row skfjh">
 				<div class="col-3"></div>
 				<div class="col-3">
-					<button class="btn btn-info centerr" onclick="location.href='{{path('app_peinture_new')}}'" type="button">Ajouter votre propre peinture à vendre!</button>
+					<button class="btn btn-warning centerr" onclick="location.href='{{path('app_peinture_new')}}'" type="button">Ajouter votre propre peinture à vendre!</button>
 				</div>
 				<div class="col-3"></div>
 				<div class="col-3"></div>

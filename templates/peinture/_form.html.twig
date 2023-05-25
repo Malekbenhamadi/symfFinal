@@ -5,12 +5,15 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
-		@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800 &display=swap");
-		body {
-			background-color: #eee;
-			font-family: "Poppins", sans-serif;
-			font-weight: 300;
-		}
+
+
+			body {
+				background-image: url('{{ asset('images/adam.jpg') }}');
+				background-repeat: no-repeat;
+  				background-attachment: fixed;
+					background-size: cover;
+				background-position-y: 25%;
+			}
 		.card {
 			border: none;
 		}
@@ -91,7 +94,7 @@
 						<div class="d-flex flex-row align-items-center">
 
 							<div class="text-center flex-column ml-2">
-								<span class="font-weight-bold">{{peinture.nom}}</span>
+								<span class="font-weight-bold">{{peinture.nom}} : {{peinture.Categories[0].designation}} </span>
 
 							</div>
 						</div>

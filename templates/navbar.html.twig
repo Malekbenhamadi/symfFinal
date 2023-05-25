@@ -4,15 +4,10 @@
 
 		<style>
 
-			body {
-				background-image: url('{{ asset('images/bgsite1 .jpg') }}');
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position-y: 25%;
-			}
+	
 
 			.navbar {
-				background-color: white;
+				background-color: rgb(255, 255, 255,0.7);
 			}
 
 			.navbar-brand {
@@ -24,9 +19,75 @@
 			.navbar-text {
 				margin-right: 15px;
 			}
+				.card {
+			border: none;
+		}
+		.ellipsis {
+			color: #a09c9c;
+		}
+		hr {
+			color: #a09c9c;
+			margin-top: 4px;
+			margin-bottom: 8px;
+		}
+		.muted-color {
+			color: #a09c9c;
+			font-size: 13px;
+		}
+		.ellipsis i {
+			margin-top: 3px;
+			cursor: pointer;
+		}
+		.icons i {
+			font-size: 25px;
+		}
+		.icons .fa-heart {
+			color: red;
+		}
+		.icons .fa-smile-o {
+			color: yellow;
+			font-size: 29px;
+		}
+		.rounded-image {
+			border-radius: 50% !important;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50px;
+			width: 50px;
+		}
+		.name {
+			font-weight: 600;
+		}
+		.comment-text {
+			font-size: 12px;
+		}
+		.status small {
+			margin-right: 10px;
+			color: blue;
+		}
+		.form-control {
+			border-radius: 26px;
+		}
+		.comment-input {
+			position: relative;
+		}
+		.fonts {
+			position: absolute;
+			right: 13px;
+			top: 8px;
+			color: #a09c9c;
+		}
+		.form-control:focus {
+			color: #495057;
+			background-color: #fff;
+			border-color: #8bbafe;
+			outline: 0;
+			box-shadow: none;
+		}
 		</style>
 	</head>
-	<body>
+
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<a class="navbar-brand" href="/">
 				<img src="https://images-ext-1.discordapp.net/external/uVDwYZq6Xy4FxLIZCWT0-kr0gjCzcsVJes8vEqbAeh4/%3Fw%3D1280%26h%3D720%26x%3D0%26y%3D746%26cropWidth%3D3294%26cropHeight%3D2361%26c%3Def355d94b53d981d6ba2c9ac5116dccfe3f0ca2175f44705098aff189a84ee23/https/assets.vangoghmuseum.nl/f9a7a187-484e-4821-b84a-79c836109029?width=896&height=503" width="30" height="30" class="d-inline-block align-top" alt="Logo">
@@ -35,13 +96,19 @@
 			<ul class="navbar-nav mr-auto"></ul>
 			<span class="navbar-text">
 				<a href="{{ path('app_user_edit', {'id': user.id} )}}" class="">
-					<i class="fas fa-user-circle"></i>
+		
+						
+							<img src={{asset("images/") ~ user.image}} width="40" class="rounded-image">
+					
+				
+		
+						</div>
 					{{user.prenom}}
 					{{user.nom}}</a>
 
 
 			</span>
-			<a class="nav-link" href="logout">
+			<a class="nav-link" style="color : black" href="logout">
 				<i class="fa fa-sign-out" aria-hidden="true"></i>
 				Logout</a>
 		</nav>
@@ -51,5 +118,5 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-	</body>
+
 </html>

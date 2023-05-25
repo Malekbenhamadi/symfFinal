@@ -10,7 +10,7 @@
 			background-image: url('{{ asset('images/brush.jpg') }}');
 			background-repeat: no-repeat;
 			background-size: cover;
-    background-position-y: 25%;
+			background-position-y: 25%;
 
 		}
 	</style>
@@ -25,114 +25,126 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
-
-	                        				{{ form_start(registrationForm) }}
-
+	{{ form_start(registrationForm) }}
 	<div class="container">
 		<div class="row">
 			<div class="col"></div>
 			<div class="col"></div>
 			<div class="col">
 
-                <br>
-                <br>
-                <br>
-                <h2 style="text-align:center;">Register</h2>
+				<br>
+				<br>
+				<br>
+				<h2 style="text-align:center;">Register</h2>
 
-                  <br>
-                <br>
-                <br>
-                <form method="post">
+				<br>
+				<br>
+				<br>
+				<form method="post">
 
-				<table class="table">
-					<tr>
-						<td>
+					<table class="table">
+						<tr>
+							<td>
 
 
-							{{ form_label(registrationForm.nom) }}
+								{{ form_label(registrationForm.nom) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(registrationForm.nom) }}
+							</td>
+							<td>
+								{{ form_widget(registrationForm.nom) }}
 
-                        </td>
-					</tr>
-                    <tr>
-						<td>
-							{{ form_label(registrationForm.prenom) }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ form_label(registrationForm.prenom) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(registrationForm.prenom) }}
+							</td>
+							<td>
+								{{ form_widget(registrationForm.prenom) }}
 
-                        </td>
-					</tr>
-                    <tr>
-						<td>
-							{{ form_label(registrationForm.cin) }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ form_label(registrationForm.cin) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(registrationForm.cin) }}
+							</td>
+							<td>
+								{{ form_widget(registrationForm.cin) }}
 
-                        </td>
-					</tr>
-                    <tr>
-						<td>
-							{{ form_label(registrationForm.tel) }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ form_label(registrationForm.tel) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(registrationForm.tel) }}
+							</td>
+							<td>
+								{{ form_widget(registrationForm.tel) }}
 
-                        </td>
-					</tr>
-                    <tr>
-						<td>
-							{{ form_label(registrationForm.email) }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ form_label(registrationForm.email) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(registrationForm.email) }}
+							</td>
+							<td>
+								{{ form_widget(registrationForm.email) }}
 
-                        </td>
-					</tr>
-                    <tr>
-						<td>
-							{{ form_label(registrationForm.plainPassword) }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ form_label(registrationForm.plainPassword) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(registrationForm.plainPassword) }}
+							</td>
+							<td>
+								{{ form_widget(registrationForm.plainPassword) }}
 
-                        </td>
-					</tr>
-                    <tr>
-						<td>
-							{{ form_label(registrationForm.agreeTerms) }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ form_label(registrationForm.agreeTerms) }}
 
-						</td>
-						<td>
-                        	{{ form_widget(registrationForm.agreeTerms) }}
+							</td>
+							<td>
+								{{ form_widget(registrationForm.agreeTerms) }}
 
-                        </td>
-					</tr>
-                    
+							</td>
+						</tr>
+							<tr>
+							<td>
+								{{ form_label(registrationForm.attachment) }}
 
-             
-				</table>
-                <div class="text-center">
+							</td>
+							<td>
+								{{ form_widget(registrationForm.attachment) }}
 
-                                    	<button type="submit" class="btn">Register</button>
-			</div>
-			{{ form_rest(registrationForm) }}
-</form >
+							</td>
+						</tr>
 
+
+
+
+					</table>
+					<div class="text-center">
+
+						<button type="submit" class="btn" style="color : blue">Register</button>
+					</div>
+					<a href="login">
+					 back to login page
+					</a>
+					{{ form_rest(registrationForm) }}
+					
+				</form>
 			</div>
 		</div>
 	</div>
 
-{{ form_end(registrationForm) }}
+	{{ form_end(registrationForm) }}
 
 
 {% endblock %}
