@@ -19,6 +19,7 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'app_home')]
     public function index(PeintureRepository $peintureRepository): Response
     {
+       
         $aux=$this->getUser();
         if($this->getUser()==null)
         {
@@ -28,7 +29,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'user'=>$aux,
-            'peintures' => $peintureRepository->findAll(),
+            'peintures' => $peintureRepository->findAll()
         ]);
     }
 }
