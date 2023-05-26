@@ -37,7 +37,7 @@ class Peinture
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'peinture', targetEntity: Commentaire::class)]
+    #[ORM\OneToMany(mappedBy: 'peinture', targetEntity: Commentaire::class,orphanRemoval:true)]
     private Collection $Commentaires;
 
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'peintures')]
